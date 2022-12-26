@@ -1,7 +1,7 @@
 import os
 import openai
 
-OPENAI_APIKEY = os.environ.get('OPENAI_APIKEY','there were some problem with APIKEY')
+
 '''
 openai.api_key = OPENAI_APIKEY
 openai.Model.list()
@@ -21,6 +21,7 @@ def create_images(api_key, prompt):
     )
     for image in images['data']:
         yield image['url']
-
+'''
 for link in create_images(OPENAI_APIKEY,'small dragon battle with godzilla on the beach'):
     print(link)
+'''

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Christmas tasks by Za Raczke</title>
+</head>
+<body>
+    <main>
+        <nav>
+            <button><a href="#TaskOne">Task One</a></button>
+            <button><a href="#TaskTwo">Task Two</a></button>
+        </nav>
+        <section id="TaskTwo">
+            <p>I can help you to generate a christmas picture. Just choose what would you like to include.</p>
+            <form method="post">
+                <label for="question">What would you like to include on the requested picture?</label><br>
+                <input type="checkbox" id="candles" name="properties" value="candles">
+                <label for="candles">Candles</label><br>
+                <input type="checkbox" id="presents" name="properties" value="presents">
+                <label for="presents">Presents</label><br>
+                <input type="checkbox" id="christmas_tree" name="properties" value="christmas_tree">
+                <label for="christmas_tree">Christmas tree</label><br>
+                <input type="submit" value="Submit">
+            </form>
+            
+            <p>You choose {{user_prompt}}</p>
+            
+                <div class="image_wrapper">
+                    {% for image in images %}
+                        <img src="{{ image }}" alt="picture">
+                    {% endfor %}
+                </div>
+            
+        </section>
+    </main>
+</body>
+</html>
