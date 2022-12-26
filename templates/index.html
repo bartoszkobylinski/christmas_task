@@ -4,31 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>Document</title>
+    <title>Christmas tasks by Za Raczke</title>
 </head>
 <body>
     <main>
-        <nav></nav>
-        <section>
+        <nav>
+            <button><a href="#TaskOne">Task One</a></button>
+            <button><a href="#TaskTwo">Task Two</a></button>
+        </nav>
+        <section id="TaskOne">
             <h1>Hello</h1>
             <p>Would you like to calculate how long you have to wait for next Christmas Party? Or any Christmas party. Let's say in a 10 years? Just drop here you date where would you like to calculate from.</p>
             <form method="post">
                 <label for="date_input">Enter a date:</label><br>
                 <input type="date" id="date_input" name="date_input"><br>
-                <input type="submit" value="Submit">
+                <label for="last_year">How many years in the future:</label><br>
+                <input type="number" name="last_year" id="last_year"><br>
+                <input id="button" type="submit" value="Submit">
             </form> 
-        </section>
-        <section>
             <ul>
                 {% for date in data %}
                 <li>
                     {% for key, value in date.items() %}
-                    <p>from date until a christmas at {{ key }} you have to wait {{ value.years}} years, {{value.months}} months, {{value.weeks}} weeks and {{value.days}} days.</p>
+                    <p>from {{ date_input }} until a christmas at {{ key }} you have to wait {{ value.years}} years, {{value.months}} months, {{value.weeks}} weeks and {{value.days}} days.</p>
                     {% endfor %}
                 </li>
                 {% endfor %}
             </ul>
+        </section>
+        <section id="TaksTwo">
+            <p>tu obrazki beda</p>
         </section>
     </main>
     
