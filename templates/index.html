@@ -12,7 +12,23 @@
         <nav></nav>
         <section>
             <h1>Hello</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde!</p>
+            <p>Would you like to calculate how long you have to wait for next Christmas Party? Or any Christmas party. Let's say in a 10 years? Just drop here you date where would you like to calculate from.</p>
+            <form method="post">
+                <label for="date_input">Enter a date:</label><br>
+                <input type="date" id="date_input" name="date_input"><br>
+                <input type="submit" value="Submit">
+            </form> 
+        </section>
+        <section>
+            <ul>
+                {% for date in data %}
+                <li>
+                    {% for key, value in date.items() %}
+                    <p>from date until a christmas at {{ key }} you have to wait {{ value.years}} years, {{value.months}} months, {{value.weeks}} weeks and {{value.days}} days.</p>
+                    {% endfor %}
+                </li>
+                {% endfor %}
+            </ul>
         </section>
     </main>
     
